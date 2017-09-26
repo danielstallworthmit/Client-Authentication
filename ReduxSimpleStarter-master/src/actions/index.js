@@ -6,6 +6,25 @@ export const AUTH_USER = 'AUTH_USER';
 export const UNAUTH_USER = 'UNAUTH_USER';
 export const AUTH_ERROR = 'AUTH_ERROR';
 
+export function signupUser({email, password}) {
+    return function(dispatch) {
+        // Submit email and pw to server
+        axios.post(`${ROOT_URL}/signup`, { email, password })
+            .then(res => {
+                // If req good then update auth state
+                dispatch({ type: AUTH_USER });
+                // Save jwt token
+                localStorage.setItem('token', res.data.token);
+                // redirect to the /feature route
+                browserHistory.push('/feature');
+            })
+            .catch((res) => {
+                // Req bad -> show error to user
+                dispatch(authError(res.data.error));
+            })
+    }
+}
+
 export function signinUser({email, password}) {
     return function(dispatch) {
         // Submit email and pw to server

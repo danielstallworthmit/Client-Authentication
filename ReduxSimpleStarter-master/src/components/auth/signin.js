@@ -18,7 +18,7 @@ class Signin extends React.Component {
             );
         }
     }
-    
+
     render() {
         const { handleSubmit } = this.props;
         return (
@@ -31,7 +31,7 @@ class Signin extends React.Component {
                     <label htmlFor="password">Password:</label>
                     <Field name="password" type="password" component="input" className="form-control" />
                 </fieldset>
-                { this.renderAlert()}
+                { this.renderAlert() }
                 <button type="submit" className="btn btn-primary"> Sign In </button>
             </form>
         );
