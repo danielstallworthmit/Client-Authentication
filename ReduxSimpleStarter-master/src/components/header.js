@@ -14,10 +14,10 @@ class Header extends React.Component {
         } else {
             // Show link to sign in or sign up when user is signed out
             return [
-            <li className="nav-item">
+            <li className="nav-item" key={1}>
                 <Link className="nav-link" to="/signin">Sign In</Link>
             </li>,
-            <li className="nav-item">
+            <li className="nav-item" key={2}>
                 <Link className="nav-link" to="/signup">Sign Up</Link>
             </li>
             ]
